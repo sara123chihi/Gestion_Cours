@@ -1,0 +1,82 @@
+<ion-header [translucent]="true" >
+
+    <ion-toolbar color="primary" >  
+      <ion-title class="ion-text-center">
+        Our Catalog
+      </ion-title>  
+      <ion-buttons slot="start">
+        <ion-button>
+          <ion-icon  name="reorder-three-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button routerLink="/add-course" >
+          <ion-icon slot="icon-only" name="add-outline" ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+
+</ion-header>
+<br/>
+
+<ion-content [fullscreen]="true">
+  <strong > We propose these new coures:</strong>
+  <br/> <br/>
+  <!--
+ <ion-list>
+    <ion-item>
+      <ion-img src="assets/icon/angular.png"></ion-img>
+      <ion-label> Angular </ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+
+    <ion-item>
+      <ion-img src="assets/icon/android.png"></ion-img>
+      <ion-label> Android </ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    <ion-item>
+      <ion-img src="assets/icon/ionic2.png" ></ion-img>
+      <ion-label> Ionic </ion-label>
+      <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+    
+  </ion-list>
+  !-->
+  
+ 
+  <ion-list>
+    <!-- route statique taaml routeLink="" w kn dynamique taaml[routerLink]=....... -->
+      <ion-item
+      [routerLink]="['/detail', course.id]"
+      *ngFor="let course of tabCourses" >
+      
+      <!-- ion-avatar taaml el image sghira mdawra kima el icon !-->
+      <ion-avatar>
+        <!-- propriété 2: proprty de binding [] -->
+        <img [src]="course.image" />
+      </ion-avatar>
+      <!-- propriété 1: l'interpolation {{ }} !-->
+      <ion-label class="ion-margin-horizontal">{{course.title}}</ion-label>
+      <!-- <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-button> 
+      </ion-buttons>  -->
+
+    </ion-item>
+  </ion-list>
+ 
+</ion-content>
